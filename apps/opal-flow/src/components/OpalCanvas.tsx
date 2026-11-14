@@ -44,7 +44,7 @@ export const OpalCanvas: React.FC<OpalCanvasProps> = ({
   );
 
   return (
-    <div className="flex-1 h-[calc(100vh-4rem)] relative w-full">
+    <div className="flex-1 h-full relative w-full">
       <ReactFlow
         nodes={nodes}
         edges={edges}

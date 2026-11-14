@@ -21,7 +21,7 @@ export const NodeInspector: React.FC<NodeInspectorProps> = ({
   const nodeType = data.type || 'input';
 
   return (
-    <aside className="w-80 h-[calc(100vh-4rem)] bg-white dark:bg-[#1e1f20] border-l border-[#e0e2ec] dark:border-[#444746] flex flex-col z-20 shadow-lg animate-slideLeft select-none">
+    <aside className="w-80 h-full bg-white dark:bg-[#1e1f20] border-l border-[#e0e2ec] dark:border-[#444746] flex flex-col z-20 shadow-lg animate-slideLeft select-none">
       {/* Header */}
       <div className="p-4 border-b border-[#e0e2ec] dark:border-[#444746] flex items-center justify-between bg-[#f8fafd] dark:bg-[#131314]">
         <div className="flex items-center gap-2">

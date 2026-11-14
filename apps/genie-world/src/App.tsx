@@ -64,7 +64,7 @@ export const App: React.FC = () => {
           onGenerateNewWorld={generateNewWorld}
         />
 
-        {/* 10 Google Cloud Storage Simulation Videos Carousel */}
+        {/* 19 Google Cloud Storage Simulation Videos Carousel */}
         <VideoAssetCarousel
           currentId={currentId}
           onSelectSimulation={selectSimulation}

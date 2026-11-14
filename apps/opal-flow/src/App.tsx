@@ -32,6 +32,7 @@ export const App: React.FC = () => {
     addNewNode,
     runFlow,
     setNodes,
+    setEdges,
   } = useWorkflowStore();
 
   const handleExportJson = () => {
@@ -48,6 +49,7 @@ export const App: React.FC = () => {
 
   const handleDeleteNode = (nodeId: string) => {
     setNodes((nds) => nds.filter((n) => n.id !== nodeId));
+    setEdges((eds) => eds.filter((e) => e.source !== nodeId && e.target !== nodeId));
     setSelectedNodeId(null);
   };
 

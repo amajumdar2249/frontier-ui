@@ -34,7 +34,9 @@ export const MiniAppRunner: React.FC<MiniAppRunnerProps> = ({
   const [copiedIndex, setCopiedIndex] = useState<number | null>(null);
 
   const handleCopyItem = (text: string, index: number) => {
-    navigator.clipboard.writeText(text);
+    if (navigator?.clipboard?.writeText) {
+      navigator.clipboard.writeText(text).catch(() => {});
+    }
     setCopiedIndex(index);
     setTimeout(() => setCopiedIndex(null), 2000);
   };
@@ -42,7 +44,7 @@ export const MiniAppRunner: React.FC<MiniAppRunnerProps> = ({
   const outputData = executionOutput || template.sampleOutput;
 
   return (
-    <div className="flex-1 h-[calc(100vh-4rem)] overflow-y-auto bg-[#f8fafd] dark:bg-[#131314] p-4 md:p-8 flex justify-center">
+    <div className="flex-1 h-full overflow-y-auto bg-[#f8fafd] dark:bg-[#131314] p-4 md:p-8 flex justify-center">
       <div className="w-full max-w-4xl space-y-8 pb-16">
         {/* App Hero Banner */}
         <div className="bg-white dark:bg-[#1e1f20] p-6 md:p-8 rounded-3xl border border-[#e0e2ec] dark:border-[#444746] shadow-sm relative overflow-hidden">

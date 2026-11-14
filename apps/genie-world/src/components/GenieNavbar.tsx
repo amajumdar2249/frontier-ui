@@ -34,7 +34,7 @@ export const GenieNavbar: React.FC = () => {
           Interactive Simulator
         </a>
         <a href="#gallery" className="hover:text-[#00e5ff] transition-colors">
-          10 GCS Assets
+          19 GCS Assets
         </a>
         <a href="#architecture" className="hover:text-[#00e5ff] transition-colors">
           Neural Architecture

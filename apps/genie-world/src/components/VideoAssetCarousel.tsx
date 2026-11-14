@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Play, Sparkles, Filter, CheckCircle2 } from 'lucide-react';
+import { Sparkles, CheckCircle2, Search } from 'lucide-react';
 import { GENIE_SIMULATIONS } from '../data/simulations';
 
 interface VideoAssetCarouselProps {
@@ -12,12 +12,29 @@ export const VideoAssetCarousel: React.FC<VideoAssetCarouselProps> = ({
   onSelectSimulation,
 }) => {
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
+  const [searchQuery, setSearchQuery] = useState<string>('');
 
-  const categories = ['All', 'Fauna', 'Optics', 'Physics', 'Fluid Dynamics', 'Deformation', 'Atmospheric', 'Interactive World'];
+  const categories = [
+    'All',
+    'Robotics',
+    'Fauna',
+    'Optics',
+    'Physics',
+    'Fluid Dynamics',
+    'Deformation',
+    'Atmospheric',
+    'Interactive World',
+  ];
 
-  const filtered = GENIE_SIMULATIONS.filter(
-    (sim) => selectedCategory === 'All' || sim.category === selectedCategory
-  );
+  const filtered = GENIE_SIMULATIONS.filter((sim) => {
+    const matchesCategory = selectedCategory === 'All' || sim.category === selectedCategory;
+    const matchesQuery =
+      searchQuery.trim() === '' ||
+      sim.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      sim.prompt.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      sim.tags.some((t) => t.toLowerCase().includes(searchQuery.toLowerCase()));
+    return matchesCategory && matchesQuery;
+  });
 
   return (
     <section id="gallery" className="px-4 md:px-8 max-w-7xl mx-auto space-y-6 pt-10">
@@ -28,28 +45,41 @@ export const VideoAssetCarousel: React.FC<VideoAssetCarouselProps> = ({
             <span>Official Google Cloud Storage Extractions</span>
           </div>
           <h2 className="text-xl md:text-2xl font-bold text-white">
-            10 Interactive World Simulation Assets
+            19 Interactive World Simulation Assets
           </h2>
           <p className="text-xs text-[#9ca3af] mt-1">
             Zero-shot physical environments generated purely by the Genie 4 latent world model.
           </p>
         </div>
 
-        {/* Category Filter Pills */}
-        <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setSelectedCategory(cat)}
-              className={`px-3 py-1 rounded-full text-xs font-mono transition-colors whitespace-nowrap ${
-                selectedCategory === cat
-                  ? 'bg-[#00e5ff] text-black font-semibold'
-                  : 'bg-[#0e0e10] text-[#9ca3af] hover:text-white border border-[#1f1f23]'
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
+        {/* Search & Category Filter Pills */}
+        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
+          <div className="relative w-full sm:w-56">
+            <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-[#6b7280]" />
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="Search 19 simulations..."
+              className="w-full pl-8 pr-3 py-1.5 rounded-full bg-[#0e0e10] border border-[#1f1f23] focus:border-[#00e5ff] text-xs text-white placeholder:text-gray-500 outline-none"
+            />
+          </div>
+
+          <div className="flex items-center gap-1.5 overflow-x-auto pb-1 max-w-full scrollbar-none">
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setSelectedCategory(cat)}
+                className={`px-3 py-1 rounded-full text-xs font-mono transition-colors whitespace-nowrap ${
+                  selectedCategory === cat
+                    ? 'bg-[#00e5ff] text-black font-semibold'
+                    : 'bg-[#0e0e10] text-[#9ca3af] hover:text-white border border-[#1f1f23]'
+                }`}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
         </div>
       </div>
 
@@ -100,34 +130,27 @@ export const VideoAssetCarousel: React.FC<VideoAssetCarouselProps> = ({
               {/* Card Meta Content */}
               <div className="p-4 space-y-3 flex-1 flex flex-col justify-between">
                 <div>
-                  <h3 className="text-sm font-bold text-white group-hover:text-[#00e5ff] transition-colors">
-                    {sim.title}
+                  <h3 className="text-sm font-bold text-white group-hover:text-[#00e5ff] transition-colors flex items-center justify-between">
+                    <span>{sim.title}</span>
+                    <span className="text-[10px] font-mono text-[#6b7280]">
+                      {sim.telemetry.inferenceLatencyMs}ms
+                    </span>
                   </h3>
-                  <p className="text-xs text-[#9ca3af] mt-1 line-clamp-2 leading-relaxed">
+                  <p className="text-xs text-[#9ca3af] mt-1.5 line-clamp-2 leading-relaxed">
                     {sim.prompt}
                   </p>
                 </div>
 
-                {/* Physics Phenomena Breakdown Tags */}
-                <div className="space-y-1.5 pt-2 border-t border-[#1f1f23]">
-                  <div className="text-[10px] font-mono text-[#6b7280]">
-                    SIMULATED PHENOMENA:
-                  </div>
-                  <ul className="text-[11px] text-[#9ca3af] space-y-0.5">
-                    {sim.physicsBreakdown.slice(0, 2).map((item, i) => (
-                      <li key={i} className="truncate flex items-center gap-1.5">
-                        <span className="w-1 h-1 rounded-full bg-[#a855f7]" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="pt-2 flex items-center justify-between text-[10px] font-mono text-[#6b7280]">
-                  <span>LATENCY: {sim.telemetry.inferenceLatencyMs}ms</span>
-                  <span className="text-[#00e5ff] group-hover:underline">
-                    {isSelected ? 'ACTIVE IN STAGE' : 'LOAD TO STAGE →'}
-                  </span>
+                {/* Physics tags */}
+                <div className="pt-2 border-t border-[#1f1f23]/60 flex items-center gap-1.5 flex-wrap">
+                  {sim.tags.slice(0, 3).map((tag, i) => (
+                    <span
+                      key={i}
+                      className="text-[9px] font-mono px-2 py-0.5 rounded-md bg-[#141418] text-[#9ca3af] border border-[#1f1f23]"
+                    >
+                      {tag}
+                    </span>
+                  ))}
                 </div>
               </div>
             </div>

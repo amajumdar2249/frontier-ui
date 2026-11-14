@@ -120,7 +120,7 @@ export function useSimulationStore() {
     setCurrentId(match.id);
     setIsGenerating(false);
     setActionLog((prev) => [
-      `[WORLD_SYNTHESIS_COMPLETE] Latent manifold stabilized @ 60 FPS`,
+      `[WORLD_SYNTHESIS_COMPLETE] Latent manifold stabilized @ 60 FPS: "${match.title}"`,
       ...prev.slice(0, 12),
     ]);
   }, []);

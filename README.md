@@ -20,7 +20,7 @@ Frontier AI models are changing not just what intelligence can do, but how human
          └───────┬───────┘                                             └───────┬───────┘
                  │                                                             │
    Google Labs Opal Visual Builder                               Google DeepMind Genie 4 Simulator
-   • Node workflow canvas (XYFlow)                               • 10 GCS WebM simulation streams
+   • Node workflow canvas (XYFlow)                               • 19 GCS WebM simulation streams
    • 10 pre-loaded official templates                            • Real-time WASD action tokenizer
    • Live reactive Mini-App runner                               • 60 FPS / 16ms Latent HUD
    • Material You / Google Labs tokens                           • Cybernetic DeepMind dark theme
@@ -64,7 +64,7 @@ Frontier AI models are changing not just what intelligence can do, but how human
 ### 2. `apps/genie-world` — Google DeepMind Genie 4 (World Model Simulator)
 *Official Reference: [deepmind.google/models/genie](https://deepmind.google/models/genie/)*
 
-- **Interactive World Simulation Stage**: Directly streams 10 high-definition WebM simulation videos reverse engineered from Google Cloud Storage (`storage.googleapis.com/gdm-deepmind-com-prod-public/`).
+- **Interactive World Simulation Stage**: Directly streams 19 high-definition WebM simulation videos reverse engineered from Google Cloud Storage (`storage.googleapis.com/gdm-deepmind-com-prod-public/`).
 - **Unsupervised Latent Action Controller**:
   - Live keyboard listener capturing `W`, `A`, `S`, `D`, `Arrow Keys`, and `Space` (Discrete Impulse).
   - Virtual cybernetic directional pad with reactive key illumination.
@@ -80,7 +80,7 @@ Frontier AI models are changing not just what intelligence can do, but how human
 
 ## 📦 Extracted Google Cloud Storage Simulation Assets
 
-All simulation assets in `apps/genie-world` stream from Google's official GCS media buckets:
+All 19 simulation assets in `apps/genie-world` stream from Google's official GCS media buckets:
 
 | Domain | Scene Title | Resolution / FPS | Physical Phenomena Simulated in Latent Space |
 |---|---|---|---|
@@ -94,6 +94,15 @@ All simulation assets in `apps/genie-world` stream from Google's official GCS me
 | 🍉 **Materials** | *Watermelon Slicing* | 720p @ 60 FPS | Tensile fracture propagation, droplet splatter, knife shear |
 | 🎈 **Atmosphere** | *Hot Air Balloon* | 720p @ 60 FPS | Thermal burner refraction waves, cloud volume slicing, sunrise irradiance |
 | 🦎 **Aquatic** | *Axolotl Cavern* | 720p @ 60 FPS | Undulating gill filaments, water viscosity drag, dappled caustics |
+| 🤖 **Robotics** | *Robotics UR5 Manipulation* | 720p @ 60 FPS | Sim-to-real robotic policy execution, contact mechanics, Gemini planning |
+| ✨ **Interactive** | *First-Person Magician* | 720p @ 60 FPS | Real-time particle spellcasting, emissive lighting, runic cascades |
+| 🏛️ **Optics** | *Royal Opera House* | 720p @ 60 FPS | Gilded architectural scale, acoustic lighting, grand hall depth culling |
+| 🏍️ **Vehicles** | *Motorcycle Hero* | 720p @ 60 FPS | Non-holonomic vehicle dynamics, tire traction, native audio generation |
+| 🐉 **Fauna** | *Dragon Flight* | 720p @ 60 FPS | Leading-edge vortex wing lift, high-altitude alpine aerodynamics |
+| 🎹 **Acoustics** | *Island Piano Duet* | 720p @ 60 FPS | Coastal ocean breaker shoaling, wind shear, audio-visual co-generation |
+| 🚄 **Urban** | *Japanese Train Station* | 720p @ 60 FPS | Rain-slicked platform Fresnel reflections, transit deceleration physics |
+| 🦊 **Platformer** | *White Fox Platformer* | 720p @ 60 FPS | Parabolic jump arcs, collider bounding box resolution, ledge dynamics |
+| 🎨 **Stylized** | *Illustrated City Street* | 720p @ 60 FPS | Non-photorealistic watercolor brushwork coherency, pedestrian crowd tempo |
 
 ---
 

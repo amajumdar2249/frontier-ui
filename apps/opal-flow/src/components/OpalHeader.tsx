@@ -43,7 +43,9 @@ export const OpalHeader: React.FC<OpalHeaderProps> = ({
   const [isAddMenuOpen, setIsAddMenuOpen] = useState(false);
 
   const handleShare = () => {
-    navigator.clipboard.writeText(window.location.href);
+    if (navigator?.clipboard?.writeText) {
+      navigator.clipboard.writeText(window.location.href).catch(() => {});
+    }
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
