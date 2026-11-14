@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --neon-cyan: #00e5ff;
+  --cyber-purple: #a855f7;
+  --deep-black: #000000;
+}
+
+body {
+  font-family: 'Google Sans Flex', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: #000000;
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+/* Cybernetic Scanline Effect */
+.scanline {
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0) 50%,
+    rgba(0, 229, 255, 0.05) 50%,
+    rgba(0, 229, 255, 0.05)
+  );
+  background-size: 100% 4px;
+}
+
+/* Pulsing Latent Glow */
+@keyframes latentPulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 35px rgba(0, 229, 255, 0.45);
+  }
+}
+
+.latent-glow {
+  animation: latentPulse 3s ease-in-out infinite;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0c;
+}
+::-webkit-scrollbar-thumb {
+  background: #26262e;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3f3f4c;
+}

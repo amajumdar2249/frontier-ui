@@ -1,0 +1,37 @@
+{
+  "name": "frontier-ui",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Frontier AI UI Clones: Google Opal Flow and Google DeepMind Genie 4 World Model Simulator",
+  "packageManager": "npm@11.17.0",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "turbo dev",
+    "build": "turbo build",
+    "lint": "turbo lint",
+    "dev:opal": "npm run dev --workspace=apps/opal-flow",
+    "dev:genie": "npm run dev --workspace=apps/genie-world",
+    "build:opal": "npm run build --workspace=apps/opal-flow",
+    "build:genie": "npm run build --workspace=apps/genie-world"
+  },
+  "devDependencies": {
+    "turbo": "^2.4.4",
+    "typescript": "^5.7.3"
+  },
+  "keywords": [
+    "google-opal",
+    "deepmind-genie",
+    "world-models",
+    "flow-builder",
+    "react-flow",
+    "xyflow",
+    "gemini",
+    "frontier-ai",
+    "design-systems"
+  ],
+  "author": "Frontier AI Labs",
+  "license": "Apache-2.0"
+}

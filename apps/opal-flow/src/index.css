@@ -1,0 +1,86 @@
+@import '@xyflow/react/dist/style.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --google-blue: #0b57d0;
+  --google-blue-hover: #0842a0;
+  --google-surface: #f8fafd;
+}
+
+body {
+  font-family: 'Google Sans', 'Google Sans Text', system-ui, -apple-system, sans-serif;
+  overflow: hidden;
+  user-select: none;
+}
+
+/* Custom XYFlow Styles for Google Opal */
+.react-flow__renderer {
+  background-color: transparent !important;
+}
+
+.react-flow__handle {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #0b57d0;
+  border: 2px solid #ffffff;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.dark .react-flow__handle {
+  border-color: #1e1f20;
+}
+
+.react-flow__handle:hover {
+  transform: scale(1.35);
+  background: #1ba1e2;
+}
+
+.react-flow__edge-path {
+  stroke: #a8c7fa;
+  stroke-width: 2.5;
+  transition: stroke 0.2s ease, stroke-width 0.2s ease;
+}
+
+.dark .react-flow__edge-path {
+  stroke: #444746;
+}
+
+.react-flow__edge.selected .react-flow__edge-path {
+  stroke: #0b57d0;
+  stroke-width: 3.5;
+}
+
+/* Pulsing animated edge for active workflow execution */
+.edge-animating .react-flow__edge-path {
+  stroke: #0b57d0 !important;
+  stroke-dasharray: 6 4;
+  animation: flowAnimation 1s linear infinite;
+}
+
+@keyframes flowAnimation {
+  from {
+    stroke-dashoffset: 20;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(100, 116, 139, 0.2);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 116, 139, 0.4);
+}
