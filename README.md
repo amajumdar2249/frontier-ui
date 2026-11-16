@@ -1,16 +1,16 @@
-# 🌐 Frontier UI — Google Frontier AI Interface Clones
+# 🌐 Frontier UI — Google Frontier AI Interface Suite
 
-> **High-Fidelity Monorepo Housing Faithful Implementations of Google Labs Opal and Google DeepMind Genie 4.**  
-> Built with **Turborepo**, **React 18**, **TypeScript**, **Tailwind CSS**, **XYFlow / React Flow**, and direct **Google Cloud Storage (GCS) WebM simulation streams**.
+> **Production-Grade Open-Source Suite Reconstructing Google Labs Opal and Google DeepMind Genie 4.**  
+> Built with **React 18**, **TypeScript**, **Tailwind CSS**, **XYFlow / React Flow**, and direct **Google Cloud Storage (GCS) WebM simulation streams**.
 
 ---
 
 ## 🌟 Overview
 
-Frontier AI models are changing not just what intelligence can do, but how humans interact with it. **Frontier UI** reconstructs two of Google's most visionary, frontier-level AI interfaces into an open-source, production-grade monorepo:
+Frontier AI models are changing not just what intelligence can do, but how humans interact with it. **Frontier UI** reconstructs two of Google's most visionary, frontier-level AI interfaces into an open-source, production-grade engineering suite:
 
 ```
-                                      FRONTIER UI MONOREPO
+                                        FRONTIER UI SUITE
                                                 │
                  ┌──────────────────────────────┴──────────────────────────────┐
                  │                                                             │
@@ -137,7 +137,7 @@ frontier-ui/
 │       │   └── types.ts             # Shared interfaces
 │       └── package.json
 │
-├── package.json                     # Monorepo root with npm workspaces
+├── package.json                     # Root workspace configuration
 ├── turbo.json                       # Turborepo task pipeline
 └── README.md
 ```
@@ -177,7 +177,7 @@ npm run dev:genie
 
 ### 3. Production Build
 
-Build the entire monorepo with parallel pipeline caching:
+Build both applications with parallel pipeline caching:
 ```bash
 npm run build
 ```
